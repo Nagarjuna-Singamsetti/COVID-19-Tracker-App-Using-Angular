@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DistrictWiseComponent } from './components/district-wise/district-wise.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'COVID-19_Tracker_App';
+
+  constructor(public dialog: MatDialog) { }
+
+
+  OpenDistrictComponent() {
+    this.dialog.open(DistrictWiseComponent, {
+      height: '50%',
+      width: '50%'
+    });
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CovidAPIService } from 'src/app/shared/covid-api.service';
 
 @Component({
   selector: 'app-district-wise',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./district-wise.component.css']
 })
 export class DistrictWiseComponent implements OnInit {
-
-  constructor() { }
+  public DistrictWiseData: any[] = [];
+  constructor(private _CovidAPIService: CovidAPIService) { }
 
   ngOnInit(): void {
+    this.getDistrictsData();
   }
 
+  getDistrictsData() {
+    this._CovidAPIService.getDistrictsData().subscribe((response: any) => {
+      this.DistrictWiseData = response;
+    })
+  }
 }
