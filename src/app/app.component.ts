@@ -15,8 +15,8 @@ export class AppComponent {
 
   OpenDistrictComponent() {
     this.dialog.open(DistrictWiseComponent, {
-      height: '50%',
-      width: '50%'
+      height: '70%',
+      width: '70%'
     });
   }
 }

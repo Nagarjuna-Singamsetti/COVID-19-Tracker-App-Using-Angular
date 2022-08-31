@@ -1,1 +1,36 @@
-<p>district-wise works!</p>
+<div class="container">
+  <span>
+    <mat-form-field appearance="fill">
+      <mat-label>Select State</mat-label>
+      <mat-select (selectionChange)="selectionChange($event)">
+        <mat-option *ngFor="let state of ListOfStates" [value]="state">
+          {{state}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </span>
+  <span class="distictList">
+    <mat-form-field appearance="fill">
+      <mat-label>Select District</mat-label>
+      <mat-select (selectionChange)="getDisData($event)">
+        <mat-option *ngFor="let district of ListOfDistricts" [value]="district">
+          {{district}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </span>
+  <div class="disData">
+    <div class="card">
+      <div class="card-header">
+        District Data
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Covid-19 Data</h5>
+        <p class="card-text">Conformed Cases:{{selectedDistrictData?.confirmed}}</p>
+        <p class="card-text">Active Cases:{{selectedDistrictData?.active}}</p>
+        <p class="card-text">Recovered Cases:{{selectedDistrictData?.recovered}}</p>
+        <p class="card-text">Deaths:{{selectedDistrictData?.deceased}}</p>
+      </div>
+    </div>
+  </div>
+</div>
